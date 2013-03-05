@@ -1,6 +1,6 @@
-Genetic Logic Builder
+Genetic Circuits Builder
 =====================
-An HTML5 app that allows users to build genetic logical circuits.
+An HTML5 app that allows users to build genetic circuits.
 
 Features
 --------
@@ -9,4 +9,5 @@ Features
 
 Running the server
 ------------------
-python server.py
+
+    python server.py
