@@ -1,9 +1,82 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <title>Genetic Circuit Builder</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  <script src="/js/jquery-1.9.1.js"></script>
+  <script src="/js/jquery-ui-1.10.1.custom.min.js"></script>
+  <style>
+
+  ul {
+    list-style-type: none;
+    overflow: auto;
+    padding: 40px;
+    margin-bottom: 10px;
+    border: 1px solid green;
+  }
+
+  .tool {
+    float: left;
+    margin: 5px;
+    padding: 0px;
+    text-indent: -1000px;
+    margin: 0px;
+  }
+  .tool-rbs {
+    background: url(/img/rbs.png) no-repeat;
+    width: 60px;
+    height: 50px;
+  }
+  .tool-t {
+    background: url(/img/t.png) no-repeat;
+    width: 55px;
+    height: 50px;
+  }
+  .tool-pro {
+    background: url(/img/pro.png) no-repeat;
+    width: 55px;
+    height: 50px;
+  }
+  .tool-cs {
+    background: url(/img/cs.png) no-repeat;
+    width: 80px;
+    height: 60px;
+  }
+  </style>
+
+  <script>
+  $(function() {
+    $("#workspace-list").sortable({
+      tolerance: 'pointer',
+    });
+    $("#toolbox-list > li").draggable({
+      connectToSortable: "#workspace-list",
+      helper: "clone",
+      tolerance: 'pointer',
+      cursorAt: {top: 30, left: 30},
+    });
+    $("ul, li").disableSelection();
+  });
+  </script>
+
+
 </head>
 <body>
-Hello world!
+<h1>Genetic Circuit Builder</h1>
+<div id="toolbox">
+<h2>Toolbox</h2>
+<ul id="toolbox-list">
+  <li class="tool tool-rbs">RBS</li>
+  <li class="tool tool-pro">PRO</li>
+  <li class="tool tool-t">T</li>
+  <li class="tool tool-cs">CS</li>
+</ul>
+</div>
+<div id="workspace">
+  <h2>Workspace</h2>
+  <ul id="workspace-list">
+  </ul>
+</div>
 </body>
 </html>
