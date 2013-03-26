@@ -443,7 +443,7 @@ define([
                   if (event.start_i != null && event.end_i != null && (event.start_i != event.end_i)) { 
                       console.log("LINE: "+[event.start_i, event.end_i]);
 
-                      var interaction = new GenCirc.Interaction({promoter: event.start_m, sequence: event.end_m, repressingAction: repressingAction});
+                      var interaction = new GenCirc.Interaction({sequence: event.start_m, promoter: event.end_m, repressingAction: repressingAction});
                       circ.model.get("interactions").push(interaction);
 
                       //circ.addLine(event.start_m, event.end_m, repressingAction);
@@ -555,8 +555,8 @@ define([
       }
 
       function processInteraction(lineView) {
-        var start_m = lineView.model.get("promoter");
-        var end_m = lineView.model.get("sequence");
+        var start_m = lineView.model.get("sequence");
+        var end_m = lineView.model.get("promoter");
 
         var start_i = circ.model.get("components").indexOf(start_m);
         var end_i = circ.model.get("components").indexOf(end_m);
