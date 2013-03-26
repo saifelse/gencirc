@@ -31,6 +31,9 @@ And then browse to [http://localhost:5000/](http://localhost:5000/)
 
 Bugs/Notes
 -----
+ - The app is currently not optimized for reducing network latency, ie we are not using minified scripts or 
+   the RequireJS Optimizer
+
  - Backbone-localStorage and Backbone-relational do not play well together.
    I had to patch Backbone-localStorage to recursively assign ID's to models on create/update. This is not well tested.
 
