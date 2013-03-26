@@ -1,3 +1,10 @@
+/*
+
+A DragToolView represents a draggable tool (ie a promoter, cs, rbs, or t).
+When it is pressed, a copy is dragged and inserted into the circuit.
+CircuitView does most of the heavy lifting.
+*/
+
 
 define([
     'namespace', 'backbone','jquery','underscore',

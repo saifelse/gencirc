@@ -2,6 +2,14 @@
 
 NavView is responsible for the file menu and all dialogs.
 
+NavView communicates with CircuitView through events triggered on App.vent.
+
+The two are highly decoupled.
+For example, when you click File > Save:
+   1. NavView asks if the CircuitView's model is unsaved.
+   2. If it isn't, CircuitView asks NavView to show a save dialog.
+   3. If the user doesn't cancel, NavView will proceed with the next question.
+
 */
 define([
     'namespace', 'models/GenCirc', 'd3', 'backbone','jquery','text!templates/navigation.html','bootstrap',
@@ -41,7 +49,6 @@ define([
     // We had previously asked if we needed to save first,
     // but it seems like we need to save, before we try again.
     promptSave : function(action) {
-      console.log("BRINGING SAVE PROMPT");
       var saveModal = this.$el.find("#saveModal");
       var saveBtn = saveModal.find("#saveBtn");
       var noSaveBtn = saveModal.find("#noSaveBtn");
@@ -49,12 +56,10 @@ define([
       saveModal.modal("show");
 
       noSaveBtn.click(function() {
-        console.log("discarding changes");
         App.vent.trigger("circuit:discard");
       });
 
       saveBtn.click(function(){
-        console.log("saving changes?");
         that.saveCircuit();
       });
 
@@ -119,7 +124,7 @@ define([
     },
 
     exportCircuit : function() {
-
+      //TODO
     }, 
 
     tryOpenCircuitDialog : function() {
@@ -147,7 +152,6 @@ define([
               openBtn.removeAttr("disabled");
               //circ.print();
 
-              console.log(circ.get("interactions").at(0));
               openModal.submit(function(){
                 row.removeClass("highlight");
                 App.vent.trigger("circuit:open", circ);

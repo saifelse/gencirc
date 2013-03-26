@@ -1,3 +1,12 @@
+/*
+
+The ToolboxView consists of the 3 tools. This view does no heavy lifting...
+
+When another view would like to switch tools or if a button is clicked,
+ToolboxView updates and transmits the change.
+
+
+*/
 
 define([
     'namespace', 'backbone','jquery','underscore','text!templates/toolbox.html',
@@ -18,7 +27,6 @@ define([
 
       // Handles requests to change modes
       App.vent.on("request:mode:arrow", function(){
-        console.log(that.$el.find("#arrow_tool"));
         that.$el.find("#arrow_tool").click();
       })
       App.vent.on("request:mode:activating", function(){

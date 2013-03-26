@@ -71,6 +71,7 @@ define([
           return this.appendChild(dragToolView.render().el);
         })
       });
+
       // Register listeners when the tool changes
       App.vent.on("mode:arrow", this.setModeArrow, this);
       App.vent.on("mode:activating", this.setModeActivating, this);
@@ -161,9 +162,6 @@ define([
 
       var components = this.model.get("components");
       var interactions = this.model.get("interactions");
-      
-     
-
       // Register listeners for changes to the model to update the views.
       this.stopListening();
       this.listenTo(components, "change", this.onChangeComponent);
@@ -187,6 +185,8 @@ define([
       this._snap(null);     
       return this;
     },
+
+    // If there are unsaved changes, warn user before proceedin with desired action.
     handleCheckClose : function(action) {
       if (this.changed) {
         App.vent.trigger("warn:unsaved", action);
@@ -244,13 +244,13 @@ define([
       this.render();
     },
 
+    // Set the mode, either arrow, repressing, or activating. These are triggered by the toolbox.
     setModeArrow : function() {
       var that = this;
       _(this.children.componentViews).each(function(componentView, index) {
         that._draggable(d3.select(componentView.el), componentView.model)
       });
     },
-
     setModeRepressing : function() {
       this._setModeInteraction(true);
     },
@@ -260,7 +260,8 @@ define([
     // PRIVATE METHODS
 
     // Snaps elements in items to a line (y=50) with 50 units of horizontal spacing
-    // Specify a skip element to prevent it from snapping (ie dragged element)
+    // Specify a skip element to prevent it from snapping (ie dragged element), and returns
+    // where the skipped element is located (index).
     _snap : function(skip) {
 
       // Determine where the dragged component used to be and where it wants to be
@@ -290,7 +291,7 @@ define([
       return (tr.y < this.bYMin || tr.y > this.bYMax);
     },
 
-
+    // Makes an element sortable on the circuit.
     _draggable : function(targ, model) {
       var circ = this;
       var list = d3.select(this.el).select(".comps");
@@ -525,6 +526,7 @@ define([
       bottom.sort(intervalSort);
       
       // 4. Draw lines, while keeping space between lines that go to the same component.
+      // Used offsets are stored in ranges[i] for element i.
       ranges = [];
       items.each(function(d, i) {
           ranges[i] = {left:-dist, right:dist}
@@ -621,6 +623,8 @@ define([
           return [dx1, dx2];
       }
   },
+
+  // Make draggable tools functional.
   _toolboxify : function(toolbox) {
 
     var circ = this;
