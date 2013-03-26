@@ -1,0 +1,85 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">GenCirc</a>
+    <ul class="nav" role="navigation">
+       <li class="dropdown">
+         <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">File</a>
+         <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+           <li role="presentation"><a role="menuitem" href="#" id="nav-new">New</a></li>
+           <li role="presentation"><a role="menuitem" data-toggle="modal" href="#" id="nav-open">Open...</a></li>
+           <li role="presentation"><a role="menuitem" href="#" id="nav-save">Save</a></li>
+           <li role="presentation"><a role="menuitem" href="#">Export</a></li>
+         </ul>
+       </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Rename Component Modal -->
+<form id="renameModal" class="modal hide fade" action="#" method="GET" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h3 id="myModalLabel">Rename Component</h3>
+    </div>
+    <div class="modal-body">
+        <input id="renameField" type="textfield" width="300" />
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button id="renameBtn" class="btn btn-primary" type="submit">Rename</button>
+    </div>
+</form>
+
+<form id="renameCircuitModal" class="modal hide fade" action="#" method="GET" tabindex="-1" role="dialog" aria-labelledby="renameCircuitModalLabel" data-backdrop="false" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h3 id="renameCircuitModalLabel">Rename &amp; Save Circuit</h3>
+    </div>
+    <div class="modal-body">
+      <p>Optionally enter a new name for your circuit: </p>
+        <input id="renameCircuitField" type="textfield" width="300" />
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button id="renameCircuitBtn" class="btn btn-primary" type="submit">Save</button>
+    </div>
+</form>
+
+<form id="openCircuitModal" class="modal hide fade" action="#" method="GET" tabindex="-1" role="dialog" aria-labelledby="openCircuitModalLabel" data-backdrop="false" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h3 id="openCircuitModalLabel">Open Circuit</h3>
+    </div>
+    <div class="modal-body">
+       <table id="filetable" class="table">
+          <thead>
+            <tr>
+              <th>Filename</th>
+              <th>Date modified</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button id="openCircuitBtn" class="btn btn-primary" type="submit">Open</button>
+    </div>
+</form>
+
+
+<form id="saveModal" class="modal hide fade" action="#" method="GET" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" data-backdrop="false" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h3 id="saveModalLabel">Save?</h3>
+    </div>
+    <div class="modal-body">
+      <p>To complete your action, would you like to save changes to your circuit?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button id="noSaveBtn" class="btn btn-primary" type="submit">Discard</button>
+        <button id="saveBtn" class="btn btn-primary" type="submit">Save</button>
+    </div>
+</form>

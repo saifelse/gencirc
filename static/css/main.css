@@ -1,0 +1,71 @@
+#toolbox {
+	position: absolute;
+	top: 42px;
+	padding: 15px;
+	display: block;
+	width: 110px;
+	height: 200px;
+}
+
+body {
+	overflow: hidden;
+}
+
+#filetable > tbody > tr {
+	cursor: pointer;
+}
+#filetable > tbody > tr:hover {
+	background-color: #eee;
+}
+#filetable > tbody > tr.highlight:hover {
+	background-color: #08c;
+}
+.highlight {
+	background-color: #08c;
+	color: white;
+}
+
+.highlight .
+.comp-label {
+	color: #08c;
+}
+.comp-label:hover   {
+	color: #08c;
+	text-decoration: none;
+}
+
+.comp-label:active {
+	color: #08c;
+	text-decoration: none;
+}
+
+.comp-label:visited {
+	color: #08c;
+	text-decoration: none;
+}
+
+h2 {
+	color: white;
+}
+#canvas {
+	background-color: #eee;
+}
+
+.grab {
+  cursor: url(/img/openhand.cur), default !important;
+}
+
+.grabbing {
+	cursor: url(/img/closedhand.cur), default !important;
+}
+
+.line_draw {
+	cursor: crosshair !important;
+}
+
+.line-resize {
+	cursor: row-resize !important;
+}
+.line-invalid {
+	cursor: not-allowed !important;
+}
