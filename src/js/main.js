@@ -10,10 +10,8 @@ require.config({
   paths: {
     app: 'views/app',
     namespace: 'helpers/namespace',
-    innersvg: 'lib/innersvg',
     jquery: 'lib/jquery-1.9.1.min',
-    jqueryui: 'lib/jquery-ui-1.10.1.custom.min',
-    d3: 'lib/d3/d3.v3',
+    d3: 'lib/d3.v3.js',
     underscore: 'lib/underscore',
     backbone: 'lib/backbone',
     'backbone.localStorage': 'lib/backbone.localStorage',
@@ -22,7 +20,6 @@ require.config({
     bootstrap: 'lib/bootstrap'
   },
   shim: {
-    innersvg: {},
     underscore: {
       exports: '_'
     },
@@ -41,9 +38,6 @@ require.config({
       deps: ['backbone'],
       exports: 'Backbone'
     },
-    'jqueryui': {
-      deps: ['jquery'],
-     },
     d3: {
       exports: 'd3'
     }

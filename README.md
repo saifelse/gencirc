@@ -29,6 +29,19 @@ included for testing (requires [Flask](http://flask.pocoo.org/)).
     
 And then browse to [http://localhost:5000/](http://localhost:5000/)
 
+Building the source
+-------------------
+While the source is functional, it is not optimized (loads in several files). To build,
+install node and  r.js:
+
+   npm install -g requirejs
+
+Within src/js, execute:
+
+   ./build
+
+while will create a build directory at the root.
+
 Bugs/Notes
 -----
  - The app is currently not optimized for reducing network latency, ie we are not using minified scripts or 
