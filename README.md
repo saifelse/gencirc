@@ -34,19 +34,16 @@ Building the source
 While the source is functional, it is not optimized (loads in several files). To build,
 install node and  r.js:
 
-   npm install -g requirejs
+    npm install -g requirejs
 
 Within src/js, execute:
 
-   ./build
+    ./build
 
 while will create a build directory at the root.
 
 Bugs/Notes
 -----
- - The app is currently not optimized for reducing network latency, ie we are not using minified scripts or 
-   the RequireJS Optimizer
-
  - Backbone-localStorage and Backbone-relational do not play well together.
    I had to patch Backbone-localStorage to recursively assign ID's to models on create/update. This is not well tested.
 
