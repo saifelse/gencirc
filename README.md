@@ -1,6 +1,6 @@
 Genetic Circuits Builder
 =====================
-An HTML5 app that allows users to build genetic circuits.
+An HTML5 app that allows users to build genetic circuits. Live demo: http://gencirc.psyph.com
 
 Features
 --------
